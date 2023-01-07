@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './pages/home/home.component';
+import { SinglepageComponent } from './pages/singlepage/singlepage.component';
 import { UserComponent } from './user.component';
 
 const routes: Routes = [
@@ -11,6 +13,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'screenShot',
+        component: SinglepageComponent,
       },
     ],
   },
