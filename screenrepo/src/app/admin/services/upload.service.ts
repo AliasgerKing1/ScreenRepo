@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,7 +12,9 @@ export class UploadService {
     return this._http.post<any>(this.apiUrl, obj);
   }
   getSs() {
-    return this._http.get<any>(this.apiUrl);
+    let token = localStorage.getItem('token');
+    let head = new HttpHeaders().set('Authorization', JSON.stringify(token));
+    return this._http.get<any>(this.apiUrl, { headers: head });
   }
   deletetSs(id: any) {
     return this._http.delete<any>(this.apiUrl + id);

@@ -7,13 +7,9 @@
     </div>
     <p class="para ms-4">Apps</p>
     <div class="group ms-2">
-      <a routerLink="/">Home</a>
-      <a routerLink="">About</a>
-      <a routerLink="">Portfolio</a>
-      <a routerLink="">Gallery</a>
-      <a routerLink="">Service</a>
-      <a routerLink="">Join</a>
-      <a routerLink="">Contact</a>
+      <a *ngFor="let c of Category" style="cursor: pointer;">{{
+        c
+      }}</a>
     </div>
   </div>
 </section>

@@ -6,5 +6,7 @@ const Upload = mongoose.Schema({
   type: String,
   platform: String,
   category: String,
+  image: Array,
+  upload_date: Date,
 });
 module.exports = mongoose.model("upload", Upload);

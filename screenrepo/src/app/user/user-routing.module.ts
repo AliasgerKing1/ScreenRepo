@@ -15,7 +15,7 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'screenShot',
+        path: 'screenShot/:id',
         component: SinglepageComponent,
       },
     ],
