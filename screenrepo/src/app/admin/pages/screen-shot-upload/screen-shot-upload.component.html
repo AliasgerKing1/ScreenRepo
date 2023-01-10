@@ -147,6 +147,7 @@
                 id="upload"
                 formControlName="screen_shot"
                 #upload
+                multiple
               />
             </label>
             <div
@@ -252,7 +253,7 @@
     </form>
   </div>
 </div>
-
+<!-- 
 <form [formGroup]="testForm">
   <div class="row">
     <div class="col-md-3" *ngFor="let url of urls">
@@ -260,4 +261,4 @@
     </div>
   </div>
   <input type="file" multiple (change)="onSelect($event)" />
-</form>
+</form> -->

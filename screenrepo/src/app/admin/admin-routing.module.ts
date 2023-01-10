@@ -5,6 +5,7 @@ import { AntiAuthGuard } from './guards/anti-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { ScreenShotUploadComponent } from './pages/screen-shot-upload/screen-shot-upload.component';
+import { ScreenshotListComponent } from './pages/screenshot-list/screenshot-list.component';
 
 const routes: Routes = [
   {
@@ -21,12 +22,17 @@ const routes: Routes = [
         component: ScreenShotUploadComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'screen/list',
+        component: ScreenshotListComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -5,7 +5,9 @@ const path = require("path");
 
 routes.post("/", (req, res) => {
   let body = JSON.parse(req.body.data); 
-  let image = req.files.image;
+  let image = req.files;
+console.log(image)
+  return;
   let random_string = str({length : 100});
   let original_name = image.name;
   let array = original_name.split(".");

@@ -39,30 +39,17 @@ export class ScreenShotUploadComponent implements OnInit {
     if (this.uploadForm.invalid) {
       this.checkForm = true;
     }
-    let image = photo.files[0];
+    let image = photo.files;
     if (image) {
       let form = new FormData();
-      if (
-        image.type == 'image/jpeg' ||
-        image.type == 'image/jpg' ||
-        image.type == 'image/png' ||
-        image.type == 'image/svg'
-      ) {
-        if (image.size <= 1024 * 1024 * 4) {
-          if (!this.uploadForm.invalid) {
-            form.append('data', JSON.stringify(this.uploadForm.value));
-            form.append('image', image);
-            this._upload.addSs(form).subscribe((result) => {
-              if (result.success == true) {
-                window.location.reload();
-              }
-            });
+      if (!this.uploadForm.invalid) {
+        form.append('data', JSON.stringify(this.uploadForm.value));
+        form.append('image', image);
+        this._upload.addSs(form).subscribe((result) => {
+          if (result.success == true) {
+            // window.location.reload();
           }
-        } else {
-          this.uploadForm.controls['screen_shot'].setErrors({ sizeErr: true });
-        }
-      } else {
-        this.uploadForm.controls['screen_shot'].setErrors({ typeErr: true });
+        });
       }
     }
   }
@@ -91,16 +78,16 @@ export class ScreenShotUploadComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSelect(e: any) {
-    if (e.target.files) {
-      for (let i = 0; i <= File.length; i++) {
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[i]);
-        reader.onload = (events: any) => {
-          this.urls.push(events.target.result);
-          this.allImage = this.urls;
-        };
-      }
-    }
-  }
+  // onSelect(e: any) {
+  //   if (e.target.files) {
+  //     for (let i = 0; i <= File.length; i++) {
+  //       var reader = new FileReader();
+  //       reader.readAsDataURL(e.target.files[i]);
+  //       reader.onload = (events: any) => {
+  //         this.urls.push(events.target.result);
+  //         this.allImage = this.urls;
+  //       };
+  //     }
+  //   }
+  // }
 }
