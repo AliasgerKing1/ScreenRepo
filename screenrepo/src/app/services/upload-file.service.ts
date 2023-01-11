@@ -30,7 +30,7 @@ export class UploadFileService {
     return this._http.get<any>(this.apiUrl + '/files');
   }
   getImagesById(id: any) {
-    return this._http.get<any>(this.apiUrl + '/files' + '/' + id);
+    return this._http.get<any>(this.apiUrl + '/files/' + id);
   }
   deleteImages(id: any) {
     return this._http.delete<any>(this.apiUrl + '/' + id);
