@@ -36,8 +36,8 @@
        are you sure you want to delete <b *ngIf="indexNum">{{indexNum}}</b> image
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger" (click)="confDelete()">Yes</button>
+        <button type="button" class="btn btn-secondary" #delBtn data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="confDelete(delBtn)">Yes</button>
       </div>
     </div>
   </div>

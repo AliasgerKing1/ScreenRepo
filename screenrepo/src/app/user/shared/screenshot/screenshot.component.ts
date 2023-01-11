@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UploadService } from 'src/app/services/upload.service';
+import { UploadFileService } from 'src/app/services/upload-file.service';
 
 @Component({
   selector: 'app-screenshot',
@@ -8,16 +8,13 @@ import { UploadService } from 'src/app/services/upload.service';
   styleUrls: ['./screenshot.component.scss'],
 })
 export class ScreenshotComponent {
-  allScreenShots: any;
   id: any;
-  constructor(
-    private _router: Router,
-    private _upload: UploadService,
-  ) {
-    this._upload.getSs().subscribe((result) => {
-      this.allScreenShots = result;
-    });
 
+  allImages: any = [];
+  constructor(private _router: Router, private _upload: UploadFileService) {
+    this._upload.getImages().subscribe((result) => {
+      this.allImages = [result][0];
+    });
   }
 
   redirect(id: any) {

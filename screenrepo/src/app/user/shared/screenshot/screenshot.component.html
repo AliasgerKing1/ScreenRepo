@@ -1,8 +1,8 @@
 <div class="screenshot mt-5 ms-5">
   <div class="row mb-5">
-    <div class="col-md-3 mb-5" *ngFor="let s of allScreenShots">
-      <a (click)="redirect(s._id)" style="cursor: pointer">
-        <img src="{{ s.image }}" alt="1" />
+    <div class="col-md-3 mb-5" *ngFor="let i of allImages;">
+      <a (click)="redirect(i._id)" style="cursor: pointer">
+        <img src="{{ i.image }}" alt="1" />
       </a>
     </div>
   </div>

@@ -21,9 +21,13 @@ export class ScreenshotListComponent {
     this.allObj = obj;
   }
 
-  confDelete() {
+  confDelete(btn: any) {
     this._upload.deleteImages(this.allObj._id).subscribe((result) => {
-      console.log(result);
+      if (result.success == true) {
+        let n = this.allImages.indexOf(this.allObj);
+        this.allImages.splice(n, 1);
+        btn.click();
+      }
     });
   }
 }
