@@ -1,6 +1,6 @@
 .sidebar{
   position: fixed;
-  width: 280px;
+  width: 300px;
   top: 0;
      left: 0;
   bottom: 0;
@@ -22,7 +22,7 @@
   a{
    display: block;
    font-size: 14px;
-   padding: 10px 20px;
+   padding: 10px 13px;
    color: #666666;
    ;
    text-decoration: none;
@@ -30,7 +30,7 @@
    letter-spacing: 2px;
 }
 .group {
- width : 250px;
+ width : 280px;
 }
   a:hover{
    color: #000;
@@ -39,6 +39,6 @@
 }
   .active {
    color: #000;
-  margin-left: 20px;
+  margin-left: 15px;
   }
 }
