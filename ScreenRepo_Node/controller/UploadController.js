@@ -31,7 +31,7 @@ routes.get("/files", (req, res) => {
   });
 });
 
-routes.get("/:id", (req, res) => {
+routes.get("/files/:id", (req, res) => {
   let id = req.params.id;
   Upload.find({ _id: id }, (error, result) => {
     let new_result = result.map((x) => {
@@ -42,5 +42,10 @@ routes.get("/:id", (req, res) => {
   });
 });
 
-routes.delete("/", (req, res) => {});
+routes.delete("/:id", (req, res) => {
+  let id = req.params.id;
+  Upload.deleteMany({ _id: id }, (error) => {
+    res.send({ success: true });
+  });
+});
 module.exports = routes;
