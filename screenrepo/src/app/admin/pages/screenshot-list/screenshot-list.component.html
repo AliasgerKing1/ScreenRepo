@@ -1,1 +1,44 @@
 <app-navbar></app-navbar>
+
+
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let i of allImages; let n = index">
+    <div class="card">
+      <div class="card-header">
+        <img src="{{i.image}}" class="img-top ms-7" width="200px" height="400px" alt="">
+      </div>
+      <div class="card-body">
+        <h4>Company Name : {{i.comp_name}}</h4>
+<h5>type : {{i.type}}</h5>
+<h5>Platform : {{i.platform}}</h5>
+<p>Category : {{i.category}}</p>
+<p>Upload Date : {{i.upload_date | date : 'd MMMM y'}}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary me-5">Edit</button>
+        <button class="btn btn-danger" (click)="askDelete(n + 1, i)" data-bs-toggle="modal" data-bs-target="#delModal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="delModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete ScreenShot</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       are you sure you want to delete <b *ngIf="indexNum">{{indexNum}}</b> image
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" (click)="confDelete()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
