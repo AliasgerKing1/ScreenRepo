@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, ErrorComponent],
@@ -14,6 +15,7 @@ import { ErrorComponent } from './error/error.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

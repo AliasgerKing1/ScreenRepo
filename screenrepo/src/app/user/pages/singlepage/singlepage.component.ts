@@ -12,6 +12,8 @@ export class SinglepageComponent {
   allImages: any = [];
   comp_name: any;
 
+  allCompImages: any = [];
+  image: any;
   brand: string = 'screenRepo';
   constructor(
     private _router: Router,
@@ -23,7 +25,11 @@ export class SinglepageComponent {
       this.allImages = result;
     });
 
-    this._upload.getComp(this.allImages.comp_name).subscribe((result) => {});
+    this._upload.getComp(this.allImages.comp_name).subscribe((result) => {
+      this.allCompImages = result;
+      this.image = this.allCompImages;
+      // console.log(this.image)
+    });
   }
 
   redirect() {

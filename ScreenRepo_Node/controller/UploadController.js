@@ -44,14 +44,22 @@ routes.get("/files/:id", (req, res) => {
 routes.delete("/:id", (req, res) => {
   let id = req.params.id;
   Upload.deleteMany({ _id: id }, (error) => {
-    res.send({ success: true });
+    let new_result = result.map((x) => {
+      x.image = "http://localhost:3000/screenShots/" + x.image;
+      return x;
+    });
+    res.send(new_result[0]);
   });
 });
 
-
-routes.get("/files/data/:comp", (req,res)=> {
-  Upload.find({}, (error, result)=> {
-    res.send(result);
-  })
-})
+routes.get("/files/data/:comp", (req, res) => {
+  let comp = req.params.comp;
+  Upload.find({}, (error, result) => {
+    let new_result = result.map((x) => {
+      x.image = "http://localhost:3000/screenShots/" + x.image;
+      return x;
+    });
+    res.send(new_result);
+  });
+});
 module.exports = routes;
