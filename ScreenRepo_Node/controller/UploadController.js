@@ -41,11 +41,17 @@ routes.get("/files/:id", (req, res) => {
     res.send(new_result[0]);
   });
 });
-
 routes.delete("/:id", (req, res) => {
   let id = req.params.id;
   Upload.deleteMany({ _id: id }, (error) => {
     res.send({ success: true });
   });
 });
+
+
+routes.get("/files/data/:comp", (req,res)=> {
+  Upload.find({}, (error, result)=> {
+    res.send(result);
+  })
+})
 module.exports = routes;

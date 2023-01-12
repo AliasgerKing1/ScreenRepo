@@ -1,4 +1,3 @@
-import { LowerCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UploadFileService } from 'src/app/services/upload-file.service';
@@ -12,6 +11,8 @@ export class SinglepageComponent {
   id: any;
   allImages: any = [];
   comp_name: any;
+
+  brand: string = 'screenRepo';
   constructor(
     private _router: Router,
     private actroute: ActivatedRoute,
@@ -22,6 +23,7 @@ export class SinglepageComponent {
       this.allImages = result;
     });
 
+    this._upload.getComp(this.allImages.comp_name).subscribe((result) => {});
   }
 
   redirect() {

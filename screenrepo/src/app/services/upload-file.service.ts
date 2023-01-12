@@ -35,4 +35,8 @@ export class UploadFileService {
   deleteImages(id: any) {
     return this._http.delete<any>(this.apiUrl + '/' + id);
   }
+
+  getComp(comp: any) {
+    return this._http.get<any>(this.apiUrl + '/files/data/' + comp);
+  }
 }
