@@ -13,7 +13,6 @@ export class SinglepageComponent {
   comp_name: any;
 
   allCompImages: any = [];
-  image: any;
   brand: string = 'screenRepo';
   constructor(
     private _router: Router,
@@ -23,12 +22,11 @@ export class SinglepageComponent {
     this.id = this.actroute.snapshot.paramMap.get('id');
     this._upload.getImagesById(this.id).subscribe((result) => {
       this.allImages = result;
+      console.log(this.allImages.compName);
     });
 
-    this._upload.getComp(this.allImages.comp_name).subscribe((result) => {
+    this._upload.getComp(this.allImages.compName).subscribe((result) => {
       this.allCompImages = result;
-      this.image = this.allCompImages;
-      // console.log(this.image)
     });
   }
 

@@ -28,7 +28,7 @@ export class ScreenShotUploadComponent implements OnInit {
     private _upload: UploadFileService
   ) {
     this.uploadForm = this._fb.group({
-      comp_name: ['', Validators.required],
+      compName: ['', Validators.required],
       type: ['', Validators.required],
       platform: ['', Validators.required],
       category: ['', Validators.required],
@@ -83,19 +83,6 @@ export class ScreenShotUploadComponent implements OnInit {
     if (this.uploadForm.invalid) {
       this.checkForm = true;
     }
-    // let image = photo.files;
-    // if (image) {
-    //   let form = new FormData();
-    //   if (!this.uploadForm.invalid) {
-    //     form.append('data', JSON.stringify(this.uploadForm.value));
-    //     form.append('image', image);
-    //     this._upload.addSs(form).subscribe((result) => {
-    //       if (result.success == true) {
-    //         // window.location.reload();
-    //       }
-    //     });
-    //   }
-    // }
   }
 
   Category: any = [
@@ -119,20 +106,9 @@ export class ScreenShotUploadComponent implements OnInit {
     'travel',
     'utilities',
   ];
+  Platform: any = ['android', 'ios'];
 
   ngOnInit(): void {
     this.fileInfos = this._upload.getFiles();
   }
-  // onSelect(e: any) {
-  //   if (e.target.files) {
-  //     for (let i = 0; i <= File.length; i++) {
-  //       var reader = new FileReader();
-  //       reader.readAsDataURL(e.target.files[i]);
-  //       reader.onload = (events: any) => {
-  //         this.urls.push(events.target.result);
-  //         this.allImage = this.urls;
-  //       };
-  //     }
-  //   }
-  // }
 }

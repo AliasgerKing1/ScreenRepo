@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class UploadFileService {
   constructor(private _http: HttpClient) {}
 
-  apiUrl = 'http://localhost:3000/api/screenShot';
+  apiUrl: String = 'http://localhost:3000/api/screenShot';
 
   upload(file: File, data: any): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();

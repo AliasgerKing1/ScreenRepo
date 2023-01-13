@@ -2,6 +2,7 @@ const routes = require("express").Router();
 const Upload = require("../models/Upload");
 const str = require("random-string");
 const path = require("path");
+const { json } = require("express");
 
 routes.post("/upload", (req, res) => {
   let body = JSON.parse(req.body.data);
@@ -54,7 +55,8 @@ routes.delete("/:id", (req, res) => {
 
 routes.get("/files/data/:comp", (req, res) => {
   let comp = req.params.comp;
-  Upload.find({}, (error, result) => {
+  console.log(comp);
+  Upload.find({ compName: "screen" }, (error, result) => {
     let new_result = result.map((x) => {
       x.image = "http://localhost:3000/screenShots/" + x.image;
       return x;
@@ -62,4 +64,5 @@ routes.get("/files/data/:comp", (req, res) => {
     res.send(new_result);
   });
 });
+
 module.exports = routes;

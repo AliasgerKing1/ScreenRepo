@@ -1,3 +1,4 @@
+
 <div
   class="main"
   style="background-color: #f0f0f0 !important; min-height: 100vh"
@@ -13,9 +14,14 @@
 
         <div class="comp mt-5">
           <img src="/assets/images/comp_1.svg" alt="comp1" class="comp-img" />
-          <h3 class="brand ms-3 mt-2">
-            {{ allImages.comp_name }}
-          </h3>
+          <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <h5 class="brand ms-3 mt-2">
+              {{ allImages.compName }}
+            </h5>
+          </div>
           <p class="type ms-3">{{ allImages.type }}</p>
           <hr />
           <p class="type-2 ms-3">Platform</p>
@@ -74,7 +80,7 @@
           </div>
         </div>
         <div class="col-md-6 offset-md-2">
-          <img src="{{ allImages.image }}" class="single-image mt-5" alt="" />
+          <img src="{{ allImages.image }}" style="width : 300px !important" class="single-image mt-5" alt="" />
         </div>
         <div class="col-md-2">
           <div class="rounded mt-5">
@@ -93,24 +99,9 @@
   <div class="container">
     <div class="screenshot mt-5 ms-5">
       <div class="row mb-5">
-        <div class="col-md-3 offset-md-1 mb-5">
+        <div class="col-md-3 offset-md-1 mb-5" *ngFor="let i of allCompImages">
           <a (click)="redirect()" style="cursor: pointer;">
-            <img src="{{allCompImages[0].image}}" alt="1" />
-          </a>
-        </div>
-        <div class="col-md-3 mb-5">
-          <a (click)="redirect()" style="cursor: pointer;">
-            <img src="{{allCompImages[1].image}}" alt="2" />
-          </a>
-        </div>
-        <div class="col-md-3 mb-5">
-          <a (click)="redirect()" style="cursor: pointer;">
-            <img src="{{allCompImages[2].image}}" alt="3" />
-          </a>
-        </div>
-        <div class="col-md-2 mb-5">
-          <a (click)="redirect()" style="cursor: pointer;">
-            <img src="{{allCompImages[3].image}}" alt="4" />
+            <img src="{{i.image}}" style="width : 300px !important" alt="1" />
           </a>
         </div>
       </div>

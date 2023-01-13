@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ScreenshotComponent } from './shared/screenshot/screenshot.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
+import { SinglepageComponent } from './pages/singlepage/singlepage.component';
 @NgModule({
   declarations: [
     UserComponent,
@@ -14,6 +15,7 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
     ScreenshotComponent,
     SidebarComponent,
     SearchbarComponent,
+    SinglepageComponent,
   ],
   imports: [CommonModule, UserRoutingModule],
 })

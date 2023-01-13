@@ -8,16 +8,16 @@
         <div>
           <input
             type="text"
-            formControlName="comp_name"
-            id="comp_name"
+            formControlName="compName"
+            id="compName"
             class="formbold-form-input"
           />
           <small
             class="text-danger"
-            *ngIf="uploadForm.controls['comp_name'].errors && checkForm"
+            *ngIf="uploadForm.controls['compName'].errors && checkForm"
             >Insert Company Name</small
           >
-          <label for="comp_name" class="formbold-form-label">
+          <label for="compName" class="formbold-form-label">
             Company name
           </label>
         </div>
@@ -39,12 +39,15 @@
 
       <div class="formbold-input-flex">
         <div>
-          <input
+          <select
             type="text"
             formControlName="platform"
             id="platform"
-            class="formbold-form-input"
-          />
+            class="formbold-form-input">
+
+          <option>Select</option>
+          <option *ngFor="let p of Platform">{{ p }}</option>
+          </select>
           <small
             class="text-danger"
             *ngIf="uploadForm.controls['platform'].errors && checkForm"
