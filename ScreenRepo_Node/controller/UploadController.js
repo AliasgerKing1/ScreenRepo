@@ -6,6 +6,9 @@ const { json } = require("express");
 
 routes.post("/upload", (req, res) => {
   let body = JSON.parse(req.body.data);
+  let n = body.compName.split(" ");
+  let c = n.join("")
+  body.compName = c;
   let image = req.files.file;
   let random_string = str({ length: 100 });
   let original_name = image.name;
@@ -45,18 +48,15 @@ routes.get("/files/:id", (req, res) => {
 routes.delete("/:id", (req, res) => {
   let id = req.params.id;
   Upload.deleteMany({ _id: id }, (error) => {
-    let new_result = result.map((x) => {
-      x.image = "http://localhost:3000/screenShots/" + x.image;
-      return x;
+res.send({success: true})
     });
-    res.send(new_result[0]);
-  });
 });
 
 routes.get("/files/data/:comp", (req, res) => {
   let comp = req.params.comp;
-  console.log(comp);
-  Upload.find({ compName: "screen" }, (error, result) => {
+  let n = comp.split(" ");
+  let c = n.join("")
+  Upload.find({ compName: c }, (error, result) => {
     let new_result = result.map((x) => {
       x.image = "http://localhost:3000/screenShots/" + x.image;
       return x;

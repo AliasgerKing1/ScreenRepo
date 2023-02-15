@@ -8,6 +8,8 @@ export class UploadFileService {
   constructor(private _http: HttpClient) {}
 
   apiUrl: String = 'http://localhost:3000/api/screenShot';
+  // apiUrl: String =
+  // 'https://console.firebase.google.com/u/0/project/screen-repo/database/screen-repo-default-rtdb/data/~2F';
 
   upload(file: File, data: any): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();

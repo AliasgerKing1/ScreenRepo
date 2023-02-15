@@ -22,10 +22,9 @@ export class SinglepageComponent {
     this.id = this.actroute.snapshot.paramMap.get('id');
     this._upload.getImagesById(this.id).subscribe((result) => {
       this.allImages = result;
-      console.log(this.allImages.compName);
     });
 
-    this._upload.getComp(this.allImages.compName).subscribe((result) => {
+    this._upload.getComp('five Cents').subscribe((result) => {
       this.allCompImages = result;
     });
   }

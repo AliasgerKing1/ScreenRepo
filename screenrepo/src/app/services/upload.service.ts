@@ -8,6 +8,8 @@ export class UploadService {
   constructor(private _http: HttpClient) {}
 
   apiUrl = 'http://localhost:3000/api/ss/';
+  // apiUrl: string =
+  // 'https://console.firebase.google.com/u/0/project/screen-repo/database/screen-repo-default-rtdb/data/~2F';
   addSs(obj: any) {
     return this._http.post<any>(this.apiUrl, obj);
   }

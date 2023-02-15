@@ -1,3 +1,12 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://0.0.0.0:27017/screenRepo");
+mongoose.connect("mongodb+srv://Aliasger:SoScRoSiNoSpCr@cluster0.wvfmfrm.mongodb.net/screenRepo");
+
+mongoose.connection.on("connected", ()=>{
+    console.log("connected")
+})
+
+mongoose.connection.on("error", (err)=>{
+    console.log(err);
+})
+
