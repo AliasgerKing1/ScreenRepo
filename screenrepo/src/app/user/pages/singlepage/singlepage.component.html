@@ -12,7 +12,11 @@
         </div>
 
         <div class="comp mt-5">
-          <img src="/assets/images/comp_1.svg" alt="comp1" class="comp-img" />
+          <img
+            src="/assets/images/comp_1.svg"
+            alt="comp1"
+            class="comp-img ms-1"
+          />
           <div class="row">
             <div class="col-md-2"></div>
             <h5 class="brand ms-3 mt-2">
@@ -101,9 +105,9 @@
   <div class="container">
     <div class="screenshot mt-5 ms-5">
       <div class="row mb-5">
-        <div class="col-md-3 offset-md-1 mb-5" *ngFor="let i of allCompImages">
-          <a (click)="redirect()" style="cursor: pointer">
-            <img src="{{ i.image }}" style="width: 300px !important" alt="1" />
+        <div class="col-md-2 offset-md-2 mb-5" *ngFor="let i of allCompImages">
+          <a (click)="redirect2(i._id)" style="cursor: pointer">
+            <img src="{{ i.image }}" style="width: 200px !important" alt="1" />
           </a>
         </div>
       </div>

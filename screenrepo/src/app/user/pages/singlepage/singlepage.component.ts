@@ -32,4 +32,7 @@ export class SinglepageComponent {
   redirect() {
     this._router.navigate(['/']);
   }
+  redirect2(id: any) {
+    this._router.navigate(['/screenShot/' + id]);
+  }
 }
