@@ -41,4 +41,7 @@ export class UploadFileService {
   getComp(comp: any) {
     return this._http.get<any>(this.apiUrl + '/files/data/' + comp);
   }
+  updateTypeInImages(id: any, obj: any) {
+    return this._http.put<any>(this.apiUrl + '/addtype/' + id, obj);
+  }
 }

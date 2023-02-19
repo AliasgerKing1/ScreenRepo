@@ -65,4 +65,11 @@ routes.get("/files/data/:comp", (req, res) => {
   });
 });
 
+routes.put("/addtype/:ids", (req,res)=> {
+  let ids = req.params.ids;
+  Upload.updateMany({ _id: { $in: ids } }, { $set: {typeset : req.body} }, (error) => {
+res.send({success : true})
+  })
+})
+
 module.exports = routes;
