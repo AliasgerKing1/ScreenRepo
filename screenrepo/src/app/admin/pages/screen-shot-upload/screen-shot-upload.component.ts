@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UploadFileService } from 'src/app/services/upload-file.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-screen-shot-upload',
@@ -25,7 +26,8 @@ export class ScreenShotUploadComponent implements OnInit {
   constructor(
     public _auth: AuthService,
     private _fb: FormBuilder,
-    private _upload: UploadFileService
+    private _upload: UploadFileService,
+    private _router: Router
   ) {
     this.uploadForm = this._fb.group({
       compName: ['', Validators.required],
@@ -34,6 +36,7 @@ export class ScreenShotUploadComponent implements OnInit {
       category: ['', Validators.required],
       screen_shot: ['', Validators.required],
       upload_date: this.upload_date,
+      typeset: '',
     });
   }
 
@@ -67,6 +70,7 @@ export class ScreenShotUploadComponent implements OnInit {
             const msg = 'Uploaded the file successfully: ' + file.name;
             this.message.push(msg);
             this.fileInfos = this._upload.getFiles();
+            this._router.navigate(['/admin/screen/list']);
           }
         },
         error: (err: any) => {

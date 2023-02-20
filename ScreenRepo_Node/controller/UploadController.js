@@ -3,7 +3,6 @@ const Upload = require("../models/Upload");
 const str = require("random-string");
 const path = require("path");
 const { json } = require("express");
-
 routes.post("/upload", (req, res) => {
   let body = JSON.parse(req.body.data);
   let n = body.compName.split(" ");
@@ -45,12 +44,41 @@ routes.get("/files/:id", (req, res) => {
     res.send(new_result[0]);
   });
 });
-routes.delete("/:id", (req, res) => {
-  let id = req.params.id;
-  Upload.deleteMany({ _id: id }, (error) => {
-res.send({success: true})
+// routes.delete("/:id", (req, res) => {
+//   let id = req.params.id;
+//   Upload.deleteMany({ _id: id }, (error) => {
+// res.send({success: true})
+//     });
+// });
+routes.delete("/:ids", (req, res) => {
+  let id = req.params.ids;
+  let ids = id.split(",");
+  Upload.deleteMany({ _id: ids.map((x)=> {
+    return x;
+  }) }, (error) => {
+res.send({success: true, status : 200})
     });
 });
+routes.delete("/multi/:ids", (req, res) => {
+  let id = req.params.ids;
+  let ids = id.split(",");
+  Upload.deleteMany({ _id: ids.map((x)=> {
+    return x;
+  }) }, (error) => {
+res.send({success: true, status : 200})
+    });
+});
+
+routes.get("/multi/:ids", (req,res)=> {
+  let id = req.params.ids;
+  let ids = id.split(",");
+  Upload.find({_id : ids.map((x)=> {
+    return x;
+  })}, (error, result)=> {
+    res.send(result)
+  })
+})
+
 
 routes.get("/files/data/:comp", (req, res) => {
   let comp = req.params.comp;
@@ -66,10 +94,13 @@ routes.get("/files/data/:comp", (req, res) => {
 });
 
 routes.put("/addtype/:ids", (req,res)=> {
-  let ids = req.params.ids;
-  Upload.updateMany({ _id: { $in: ids } }, { $set: {typeset : req.body} }, (error) => {
-res.send({success : true})
+  let id = req.params.ids;
+  let ids = id.split(",");
+  Upload.updateMany({_id : ids.map((x)=> {
+    return x;
+  })},{typeset : req.body.typeset}, (error) => {
+res.send({success : true, status : 200})
   })
-})
+});
 
 module.exports = routes;

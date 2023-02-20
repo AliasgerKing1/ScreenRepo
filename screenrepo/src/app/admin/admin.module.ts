@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ScreenShotUploadComponent } from './pages/screen-shot-upload/screen-shot-upload.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ScreenshotListComponent } from './pages/screenshot-list/screenshot-list.component';
+import { DelModalComponent } from './shared/del-modal/del-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ScreenshotListComponent } from './pages/screenshot-list/screenshot-list
     ScreenShotUploadComponent,
     NavbarComponent,
     ScreenshotListComponent,
+    DelModalComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule],
 })

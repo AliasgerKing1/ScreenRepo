@@ -16,7 +16,7 @@ export class ScreenshotListComponent {
   allObj: any = [];
 
   ids: any = [];
-
+  checkSelected: boolean = false;
   type: any = ['Select', 'Login', 'Register', 'User', 'Admin'];
   constructor(
     private _upload: UploadFileService,
@@ -31,23 +31,12 @@ export class ScreenshotListComponent {
     });
   }
 
-  askDelete(Number: any, obj: any) {
-    this.indexNum = Number;
-    this.allObj = obj;
-  }
-
-  confDelete(btn: any) {
-    this._upload.deleteImages(this.allObj._id).subscribe((result) => {
-      if (result.success == true) {
-        let n = this.allImages.indexOf(this.allObj);
-        this.allImages.splice(n, 1);
-        btn.click();
-      }
-    });
-  }
-
   onCheckBoxChange(event: any) {
+    if (this.ids.length > -1) {
+      this.checkSelected = true;
+    }
     const checkBoxId = event.target.id;
+
     this.ids.push(checkBoxId);
     let n = 0;
     for (let i = 0; i < this.ids.length; i++) {
@@ -62,11 +51,42 @@ export class ScreenshotListComponent {
     return n;
   }
 
+  askDelete(Number: any, obj: any) {
+    this.indexNum = Number;
+    this.allObj = obj;
+  }
+
+  confDelete(btn: any) {
+    console.log(this.ids);
+    this._upload.deleteImages(this.ids).subscribe((result) => {
+      if (result.status === 200) {
+        let n = this.allImages.indexOf(this.allObj);
+        this.allImages.splice(n, 1);
+        btn.click();
+      }
+    });
+  }
+
+  confMultiDelete(btn: any) {
+    console.log(this.ids);
+    this._upload.deleteMultiImages(this.ids).subscribe((result) => {
+      if (result.status === 200) {
+        let n = this.allImages.indexOf(this.allObj);
+        this.allImages.splice(n, 1);
+        btn.click();
+      }
+    });
+  }
+
   changeType() {
     this._upload
       .updateTypeInImages(this.ids, this.typeForm.value)
       .subscribe((result) => {
         console.log(result);
+        if (result.status === 200) {
+          this.typeForm.reset();
+          this.checkSelected = false;
+        }
       });
   }
 }

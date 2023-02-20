@@ -8,8 +8,6 @@ export class UploadFileService {
   constructor(private _http: HttpClient) {}
 
   apiUrl: String = 'http://localhost:3000/api/screenShot';
-  // apiUrl: String =
-  // 'https://console.firebase.google.com/u/0/project/screen-repo/database/screen-repo-default-rtdb/data/~2F';
 
   upload(file: File, data: any): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
@@ -36,6 +34,12 @@ export class UploadFileService {
   }
   deleteImages(id: any) {
     return this._http.delete<any>(this.apiUrl + '/' + id);
+  }
+  deleteMultiImages(id: any) {
+    return this._http.delete<any>(this.apiUrl + '/multi/' + id);
+  }
+  getMultiImages(id: any) {
+    return this._http.get<any>(this.apiUrl + '/multi/' + id);
   }
 
   getComp(comp: any) {
