@@ -1,6 +1,6 @@
 {
   "scripts" : {
-    "dev" : "nodemon index.js",
+    "dev" : "nodemon app.js",
     "build" : "npm i"
   },
   "dependencies": {
