@@ -1,4 +1,6 @@
 {
+  "name" : "ScreenRepo_Node",
+  "main" : "app.js",
   "scripts" : {
     "dev" : "node app.js",
     "build" : "npm i"
