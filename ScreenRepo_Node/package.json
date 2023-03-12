@@ -1,9 +1,9 @@
 {
-  "name" : "ScreenRepo_Node",
-  "main" : "app.js",
-  "scripts" : {
-    "start" : "nodemon app.js",
-    "build" : "npm i"
+  "name": "ScreenRepo_Node",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "build": "npm i"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -17,6 +17,9 @@
     "random-number": "^0.0.9",
     "random-string": "^0.2.0",
     "sha1": "^1.1.1",
-    "nodemon" : "^2.0.20"
+    "nodemon": "^2.0.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
