@@ -27,7 +27,7 @@ routes.post("/upload", (req, res) => {
 routes.get("/files", (req, res) => {
   Upload.find({}, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);
@@ -38,7 +38,7 @@ routes.get("/files/:id", (req, res) => {
   let id = req.params.id;
   Upload.find({ _id: id }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result[0]);
@@ -86,7 +86,7 @@ routes.get("/files/data/:comp", (req, res) => {
   let c = n.join("")
   Upload.find({ compName: c }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);

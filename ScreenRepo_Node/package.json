@@ -1,6 +1,6 @@
 {
   "scripts" : {
-    "dev" : "/usr/local/bin/nodemon app.js",
+    "dev" : "node app.js",
     "build" : "npm i"
   },
   "dependencies": {
