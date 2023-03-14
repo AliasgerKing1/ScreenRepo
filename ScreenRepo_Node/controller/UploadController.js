@@ -15,11 +15,11 @@ routes.post("/upload", (req, res) => {
   let extension = array[array.length - 1];
   let new_name = random_string + "." + extension;
   body.screen_shot = new_name;
-  image.mv(path.resolve() + "/assets/screenShots/" + new_name, (error) => {
+  image.mv(path.resolve() + "https://screenrepo.onrender.com/assets/screenShots/" + new_name, (error) => {
     let allImages = [];
     allImages.push(new_name);
     Upload.create(body, (error) => {
-      // let obj =  {name : "http://localhost:3000/screenShots/" + new_name};
+      // let obj =  {name : "https://screenrepo.onrender.com/screenShots/" + new_name};
       res.send({ success: true });
     });
   });
@@ -27,7 +27,7 @@ routes.post("/upload", (req, res) => {
 routes.get("/files", (req, res) => {
   Upload.find({}, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);
@@ -38,7 +38,7 @@ routes.get("/files/:id", (req, res) => {
   let id = req.params.id;
   Upload.find({ _id: id }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result[0]);
@@ -86,7 +86,7 @@ routes.get("/files/data/:comp", (req, res) => {
   let c = n.join("")
   Upload.find({ compName: c }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);

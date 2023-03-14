@@ -14,6 +14,6 @@ app.use(cors());
 app.use(routes);
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("Server Running");
-});
+app.listen(port, async()=> {
+await console.log("Server Running");
+})
