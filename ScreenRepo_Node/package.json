@@ -2,7 +2,7 @@
   "name": "ScreenRepo_Node",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon App.js",
     "build": "npm i"
   },
   "dependencies": {
