@@ -10,7 +10,7 @@ export class AuthService {
 
   doLogin(obj: any) {
     return this._http.post<any>(
-      'http://localhost:3000/api/admin/loginauth',
+      'https://screenrepo.onrender.com/api/admin/loginauth',
       obj
     );
   }

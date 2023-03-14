@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class UploadService {
   constructor(private _http: HttpClient) {}
 
-  apiUrl = 'http://localhost:3000/api/screenShot/';
+  apiUrl = 'https://screenrepo.onrender.com/api/screenShot/';
 
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();

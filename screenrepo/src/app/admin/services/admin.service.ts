@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
   constructor(private _http: HttpClient) {}
-  apiUrl = 'http://localhost:3000/api/admin/login/';
+  apiUrl = 'https://screenrepo.onrender.com/api/admin/login/';
   getAdmin() {
     return this._http.get<any>(this.apiUrl);
   }
