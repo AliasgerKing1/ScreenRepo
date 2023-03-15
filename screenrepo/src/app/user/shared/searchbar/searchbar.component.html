@@ -10,9 +10,13 @@
         <input
           type="text"
           class="btn"
-          style="width: 379px; cursor: text;"
+          style="width: 379px; cursor: text"
           placeholder=" | Search screen by name, category and app name"
+          [(ngModel)]="searchTerm"
         />
+        <button class="btn btn-secondary" (click)="sendInputWord()">
+          Search
+        </button>
       </div>
     </div>
   </div>

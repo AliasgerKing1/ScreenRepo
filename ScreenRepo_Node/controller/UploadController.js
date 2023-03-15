@@ -25,7 +25,7 @@ routes.post("/upload", (req, res) => {
   });
 });
 routes.get("/files", (req, res) => {
-  Upload.find({}, (error, result) => {
+  Upload.find({}).limit(8).exec((error, result) => {
     let new_result = result.map((x) => {
       x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
@@ -103,4 +103,14 @@ res.send({success : true, status : 200})
   })
 });
 
+routes.get("/search/:word", async(req,res)=> {
+  let word = req.params.word
+  try {
+    let result = await Upload.find({compName : word});
+    res.send(result)
+  }
+  catch(err) {
+console.log(err)
+  }
+})
 module.exports = routes;

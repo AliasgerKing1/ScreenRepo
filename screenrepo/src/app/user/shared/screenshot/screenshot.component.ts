@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UploadFileService } from 'src/app/services/upload-file.service';
 
@@ -9,12 +9,13 @@ import { UploadFileService } from 'src/app/services/upload-file.service';
 })
 export class ScreenshotComponent {
   id: any;
-
+  @Input() searchResults: any = [];
   allImages: any = [];
   constructor(private _router: Router, private _upload: UploadFileService) {
     this._upload.getImages().subscribe((result) => {
       this.allImages = [result][0];
     });
+    // console.log(this.searchResults);
   }
 
   redirect(id: any) {

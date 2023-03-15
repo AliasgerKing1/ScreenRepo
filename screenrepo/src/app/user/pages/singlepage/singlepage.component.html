@@ -3,10 +3,10 @@
   style="background-color: #f0f0f0 !important; min-height: 100vh"
 >
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-lg-2">
       <div class="sidebar">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-lg-2">
             <img src="/assets/images/logo.svg" alt="logo" class="ms-3" />
           </div>
         </div>
@@ -18,10 +18,8 @@
             class="comp-img ms-1"
           />
           <div class="row">
-            <div class="col-md-2"></div>
-            <h5 class="brand ms-3 mt-2">
-              {{ allImages.compName }}
-            </h5>
+            <div class="col-lg-2"></div>
+            <h5 class="brand ms-3 mt-2">{{ allImages.compName }}</h5>
           </div>
           <p class="type ms-3">{{ allImages.type }}</p>
           <hr />
@@ -30,23 +28,21 @@
           <hr />
           <p class="type-2 ms-3">Category</p>
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-lg-10">
               <h6 class="ms-3">{{ allImages.category }}</h6>
               <hr />
               <p class="type-2 ms-3">Upload Date</p>
-              <h6 class="ms-3">
-                {{ allImages.upload_date | date }}
-              </h6>
+              <h6 class="ms-3">{{ allImages.upload_date | date }}</h6>
             </div>
           </div>
           <hr />
         </div>
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-lg-10">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
+          <div class="col-lg-6 offset-lg-3 col-12">
             <div class="search-area">
               <img
                 src="/assets/images/search.svg"
@@ -56,7 +52,7 @@
               <input
                 type="text"
                 class="btn"
-                style="width: 379px; cursor: text"
+                style="width: 100%; cursor: text"
                 placeholder=" | Search screen by name, category and app name"
               />
             </div>
@@ -65,7 +61,7 @@
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-lg-2">
           <div class="container">
             <div class="rounded mt-5">
               <img src="/assets/images/plus.svg" class="ico1" alt="" />
@@ -80,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 offset-md-2">
+        <div class="col-lg-6 offset-md-2">
           <img
             src="{{ allImages.screen_shot }}"
             style="width: 300px !important"
@@ -88,7 +84,7 @@
             alt=""
           />
         </div>
-        <div class="col-md-2">
+        <div class="col-lg-2">
           <div class="rounded mt-5">
             <img
               src="/assets/images/cross.svg"
@@ -104,10 +100,14 @@
 
   <div class="container">
     <div class="screenshot mt-5 ms-5">
-      <div class="row mb-5">
-        <div class="col-md-2 offset-md-2 mb-5" *ngFor="let i of allCompImages">
+      <div class="row d-flex mb-5">
+        <div class="col-lg-2 offset-md-2 mb-5" *ngFor="let i of allCompImages">
           <a (click)="redirect2(i._id)" style="cursor: pointer">
-            <img src="{{ i.screen_shot }}" style="width: 200px !important" alt="1" />
+            <img
+              src="{{ i.screen_shot }}"
+              style="max-width: 100% !important"
+              alt="1"
+            />
           </a>
         </div>
       </div>

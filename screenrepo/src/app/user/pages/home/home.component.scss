@@ -8,3 +8,55 @@ main{
 hr {
   color: 	#C8C8C8;
 }
+
+@media (max-width: 767px) {
+  /* styles for extra small devices (phones) */
+  .col-md-2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .col-md-10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* styles for small devices (tablets) */
+  .col-md-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-md-10 {
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* styles for medium devices (laptops) */
+  .col-md-2 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+  .col-md-10 {
+    flex: 0 0 80%;
+    max-width: 80%;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* styles for large devices (desktops) */
+  .col-md-2 {
+    flex: 0 0 15%;
+    max-width: 15%;
+  }
+  .col-md-10 {
+    flex: 0 0 85%;
+    max-width: 85%;
+    margin-top: 30px;
+  }
+}
