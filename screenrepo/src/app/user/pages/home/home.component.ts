@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { UploadFileService } from '../../../services/upload-file.service';
 @Component({
   selector: 'app-home',
@@ -7,6 +7,7 @@ import { UploadFileService } from '../../../services/upload-file.service';
 })
 export class HomeComponent {
   searchResults2: string[] = [];
+
   constructor(private _upload: UploadFileService) {}
 
   onSearchResults(results: string[]) {

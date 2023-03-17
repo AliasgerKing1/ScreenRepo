@@ -13,10 +13,22 @@
           style="width: 379px; cursor: text"
           placeholder=" | Search screen by name, category and app name"
           [(ngModel)]="searchTerm"
+          (keyup)="onSearchInput()"
+          (input)="onInput($event)"
         />
         <button class="btn btn-secondary" (click)="sendInputWord()">
           Search
         </button>
+        <div class="suggestion-box" *ngIf="showSuggestions">
+          <ul>
+            <li
+              *ngFor="let suggestion of suggestions"
+              (click)="onSuggestionClick(suggestion)"
+            >
+              {{ suggestion }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UploadFileService } from 'src/app/services/upload-file.service';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-screenshot-list',
   templateUrl: './screenshot-list.component.html',
@@ -17,17 +17,43 @@ export class ScreenshotListComponent {
 
   ids: any = [];
   checkSelected: boolean = false;
+
+  // -----------------pagination---------------
+  allscreenShotsByPagination: any = [];
+  totalRec: any;
+  recPerPage: number = 20;
+  totalPages: any;
+  skip: number = 0;
+  currentPage: number = 0;
+  page: number = 1;
+
   type: any = ['Select', 'Login', 'Register', 'User', 'Admin'];
   constructor(
     private _upload: UploadFileService,
     public _auth: AuthService,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _http: HttpClient
   ) {
-    this._upload.getImages().subscribe((result) => {
+    this._upload.getAllImages().subscribe((result) => {
       this.allImages = [result][0];
     });
     this.typeForm = this._fb.group({
       typeset: '',
+    });
+    this._upload.getRecord(this.recPerPage, this.skip).subscribe((result) => {
+      this.allImages = result;
+    });
+    this._upload.getTotalCity().subscribe((result) => {
+      this.totalRec = result.total;
+      this.totalPages = Math.ceil(this.totalRec / this.recPerPage);
+    });
+  }
+
+  paginate(num: any) {
+    this.page = num;
+    this.currentPage = (num - 1) * this.recPerPage;
+    this._upload.getRecord(this.recPerPage, num).subscribe((result) => {
+      this.allImages = result;
     });
   }
 

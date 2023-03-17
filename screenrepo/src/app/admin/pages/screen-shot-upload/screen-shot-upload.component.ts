@@ -31,7 +31,7 @@ export class ScreenShotUploadComponent implements OnInit {
   ) {
     this.uploadForm = this._fb.group({
       compName: ['', Validators.required],
-      type: ['', Validators.required],
+      pettern: ['', Validators.required],
       platform: ['', Validators.required],
       category: ['', Validators.required],
       screen_shot: ['', Validators.required],
@@ -90,25 +90,25 @@ export class ScreenShotUploadComponent implements OnInit {
   }
 
   Category: any = [
-    'business',
-    'education',
-    'entertainment',
-    'finance',
-    'food & Drink',
-    'health & Fitness',
-    'lifestyle',
-    'medical',
-    'music',
-    'navigation',
-    'news',
-    'photo & Video',
-    'productivity',
-    'reference',
-    'shopping',
-    'socisl Networking',
-    'sports',
-    'travel',
-    'utilities',
+    'Business',
+    'Education',
+    'Entertainment',
+    'Finance',
+    'Food & Drink',
+    'Health & Fitness',
+    'Lifestyle',
+    'Medical',
+    'Music',
+    'Navigation',
+    'News',
+    'Photo & Video',
+    'Productivity',
+    'Reference',
+    'Shopping',
+    'Social Networking',
+    'Sports',
+    'Travel',
+    'Utilities',
   ];
   Platform: any = ['android', 'ios'];
 

@@ -24,16 +24,16 @@
         <div>
           <input
             type="text"
-            formControlName="type"
+            formControlName="pettern"
             id="type"
             class="formbold-form-input"
           />
           <small
             class="text-danger"
-            *ngIf="uploadForm.controls['type'].errors && checkForm"
-            >Insert Type</small
+            *ngIf="uploadForm.controls['pettern'].errors && checkForm"
+            >Insert Pettern</small
           >
-          <label for="type" class="formbold-form-label"> Product Type </label>
+          <label for="type" class="formbold-form-label"> Pettern </label>
         </div>
       </div>
 
@@ -43,10 +43,10 @@
             type="text"
             formControlName="platform"
             id="platform"
-            class="formbold-form-input">
-
-          <option>Select</option>
-          <option *ngFor="let p of Platform">{{ p }}</option>
+            class="formbold-form-input"
+          >
+            <option>Select</option>
+            <option *ngFor="let p of Platform">{{ p }}</option>
           </select>
           <small
             class="text-danger"
@@ -75,55 +75,6 @@
       <div class="row">
         <div class="col-md-6">
           <div class="formbold-input-file">
-            <div class="formbold-filename-wrapper">
-              <span class="formbold-filename">
-                website-information-architecture.pdf
-
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_1670_1541)">
-                    <path
-                      d="M9.00005 7.93906L12.7126 4.22656L13.7731 5.28706L10.0606 8.99956L13.7731 12.7121L12.7126 13.7726L9.00005 10.0601L5.28755 13.7726L4.22705 12.7121L7.93955 8.99956L4.22705 5.28706L5.28755 4.22656L9.00005 7.93906Z"
-                      fill="#536387"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_1670_1541">
-                      <rect width="18" height="18" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </span>
-
-              <span class="formbold-filename">
-                website-logo.png
-
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_1670_1541)">
-                    <path
-                      d="M9.00005 7.93906L12.7126 4.22656L13.7731 5.28706L10.0606 8.99956L13.7731 12.7121L12.7126 13.7726L9.00005 10.0601L5.28755 13.7726L4.22705 12.7121L7.93955 8.99956L4.22705 5.28706L5.28755 4.22656L9.00005 7.93906Z"
-                      fill="#536387"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_1670_1541">
-                      <rect width="18" height="18" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </span>
-            </div>
             <label for="upload" class="formbold-input-label">
               <svg
                 width="20"
@@ -266,7 +217,11 @@
           </div>
         </div>
 
-        <div *ngIf="message.length" class="alert alert-secondary my-3" role="alert">
+        <div
+          *ngIf="message.length"
+          class="alert alert-secondary my-3"
+          role="alert"
+        >
           <ul *ngFor="let msg of message; let i = index">
             <li>{{ msg }}</li>
           </ul>
@@ -280,17 +235,20 @@
             </li>
           </ul>
         </div>
-
       </div>
 
-      <button class="formbold-btn" type="submit" (click)="submit()" [disabled]="!selectedFiles"
-      (click)="uploadFiles()">
+      <button
+        class="formbold-btn"
+        type="submit"
+        (click)="submit()"
+        [disabled]="!selectedFiles"
+        (click)="uploadFiles()"
+      >
         Add
       </button>
     </form>
   </div>
 </div>
-
 
 <!--
 <form [formGroup]="testForm">

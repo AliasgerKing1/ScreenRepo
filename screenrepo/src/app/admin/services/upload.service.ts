@@ -1,14 +1,15 @@
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { UrlService } from 'src/app/services/url.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UploadService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _backend: UrlService) {}
 
-  apiUrl = 'https://screenrepo.onrender.com/api/screenShot/';
+  apiUrl = `${this._backend.Backend_url}/api/screenShot/`;
 
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();

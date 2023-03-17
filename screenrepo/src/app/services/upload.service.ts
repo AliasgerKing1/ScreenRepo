@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { UrlService } from '../services/url.service';
 @Injectable({
   providedIn: 'root',
 })
 export class UploadService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private _backend: UrlService) {}
 
-  apiUrl = 'https://screenrepo.onrender.com/api/ss/';
+  apiUrl = `${this._backend.Backend_url}/api/ss/`;
   // apiUrl: string =
   // 'https://console.firebase.google.com/u/0/project/screen-repo/database/screen-repo-default-rtdb/data/~2F';
   addSs(obj: any) {

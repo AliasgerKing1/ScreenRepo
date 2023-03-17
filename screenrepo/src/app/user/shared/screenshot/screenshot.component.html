@@ -1,16 +1,26 @@
 <div class="screenshot mt-5 ms-5">
-  <!-- <div class="row mb-5">
-    <div class="col-md-3 mb-3" *ngFor="let i of allImages">
-      <a (click)="redirect(i._id)" style="cursor: pointer">
-        <img src="{{ i.screen_shot }}" class="img-fluid" alt="1" />
-      </a>
-    </div>
-  </div> -->
-  <div class="row mb-5">
-    <div class="col-md-3 mb-3" *ngFor="let result of searchResults">
-      <a (click)="redirect(result._id)" style="cursor: pointer">
-        <img src="{{ result.screen_shot }}" class="img-fluid" alt="1" />
-      </a>
-    </div>
+  <div class="comp mb-4" *ngFor="let image of allImages; let i = index">
+    <ng-container *ngIf="i % 8 === 0">
+      <h2 class="mb-4">
+        {{
+          searchResults.length > 0
+            ? image.compName === searchedCompanyName
+              ? image.compName
+              : null
+            : image.compName
+        }}
+      </h2>
+
+      <div class="row mb-5">
+        <div
+          class="col-md-3 mb-3"
+          *ngFor="let img of getImagesByCompany(image.compName)"
+        >
+          <a (click)="redirect(img._id)" style="cursor: pointer">
+            <img src="{{ img.screen_shot }}" class="img-fluid" alt="1" />
+          </a>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>
