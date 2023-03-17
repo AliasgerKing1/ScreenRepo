@@ -12,6 +12,7 @@ export class SearchbarComponent {
   suggestions: string[] = ['home', 'hii'];
   inputLength = 0;
   @Input() allImages: any[] = [];
+  @Input() searchSuggestions: any[] = [];
   @Output() searchResults = new EventEmitter<string[]>();
   constructor(private _search: SearchService) {}
 
@@ -24,6 +25,7 @@ export class SearchbarComponent {
     this.inputLength = event.target.value.length;
   }
   onSearchInput() {
+    console.log(this.searchSuggestions);
     if (this.inputLength == 0) {
       this.showSuggestions = false;
     } else {

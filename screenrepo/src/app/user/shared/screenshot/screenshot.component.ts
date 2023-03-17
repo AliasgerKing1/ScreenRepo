@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UploadFileService } from 'src/app/services/upload-file.service';
 
@@ -10,11 +10,13 @@ import { UploadFileService } from 'src/app/services/upload-file.service';
 export class ScreenshotComponent {
   id: any;
   @Input() searchResults: any = [];
+  @Output() searchSuggestions = new EventEmitter<string[]>();
   allImages: any = [];
-  searchedCompanyName : any;
+  searchedCompanyName: any;
   constructor(private _router: Router, private _upload: UploadFileService) {
     this._upload.getImages().subscribe((result) => {
       this.allImages = [result][0];
+      this.searchSuggestions.emit(this.allImages);
     });
   }
 
@@ -29,7 +31,7 @@ export class ScreenshotComponent {
     );
     if (this.searchResults[0]) {
       if (this.searchResults[0].compName === companyName) {
-         this.searchedCompanyName =  companyName;
+        this.searchedCompanyName = companyName;
       }
     }
     return filteredImages.length > 0 ? filteredImages.slice(0, 8) : [];
