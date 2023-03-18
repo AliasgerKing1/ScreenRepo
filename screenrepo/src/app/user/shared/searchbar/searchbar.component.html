@@ -21,12 +21,26 @@
         </button>
         <div class="suggestion-box" *ngIf="showSuggestions">
           <ul>
-            <li
-              *ngFor="let suggestion of suggestions"
-              (click)="onSuggestionClick(suggestion)"
-            >
-              {{ suggestion }}
-            </li>
+            <ng-container *ngFor="let suggestion of suggestions">
+              <ng-container
+                *ngIf="
+                  suggestion
+                    ? suggestion.compName
+                        .toLowerCase()
+                        .startsWith(searchInput.toLowerCase())
+                    : null
+                "
+              >
+                <li
+                  (click)="
+                    onSuggestionClick(suggestion ? suggestion.compName : null)
+                  "
+                >
+                  {{ suggestion ? suggestion.compName : null }}
+                </li>
+                <!-- <ng-container *ngBreak="true"></ng-container> -->
+              </ng-container>
+            </ng-container>
           </ul>
         </div>
       </div>

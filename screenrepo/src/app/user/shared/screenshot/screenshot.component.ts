@@ -10,6 +10,8 @@ import { UploadFileService } from 'src/app/services/upload-file.service';
 export class ScreenshotComponent {
   id: any;
   @Input() searchResults: any = [];
+  @Input() searchSuggestionsByBox: any[] = [];
+
   @Output() searchSuggestions = new EventEmitter<string[]>();
   allImages: any = [];
   searchedCompanyName: any;

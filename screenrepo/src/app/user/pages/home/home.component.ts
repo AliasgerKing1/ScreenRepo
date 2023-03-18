@@ -7,10 +7,15 @@ import { UploadFileService } from '../../../services/upload-file.service';
 })
 export class HomeComponent {
   searchResults2: string[] = [];
+  searchResultsBox: string[] = [];
 
   constructor(private _upload: UploadFileService) {}
 
   onSearchResults(results: string[]) {
     this.searchResults2 = results;
+  }
+  onSearchResultsBox(results: any) {
+    console.log(this.searchResultsBox);
+    this.searchResultsBox = results;
   }
 }
