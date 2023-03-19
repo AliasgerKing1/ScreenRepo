@@ -21,7 +21,7 @@ routes.post("/upload", (req, res) => {
     let allImages = [];
     allImages.push(new_name);
     Upload.create(body, (error) => {
-      // let obj =  {name : "http://localhost:3000/screenShots/" + new_name};
+      // let obj =  {name : "https://screenrepo.onrender.com/screenShots/" + new_name};
       res.send({ success: true });
     });
   });
@@ -47,7 +47,7 @@ routes.get("/files", (req, res) => {
     }
 
     let new_result = limitedImages.map((x) => {
-        x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+        x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
         return x;
       });
       res.send(new_result);
@@ -58,7 +58,7 @@ routes.get("/files", (req, res) => {
 routes.get("/files/all", (req, res) => {
   Upload.find({}, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);
@@ -69,7 +69,7 @@ routes.get("/files/:id", (req, res) => {
   let id = req.params.id;
   Upload.find({ _id: id }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result[0]);
@@ -117,7 +117,7 @@ routes.get("/files/data/:comp", (req, res) => {
   let c = n.join("")
   Upload.find({ compName: c }, (error, result) => {
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);
@@ -139,7 +139,7 @@ routes.get("/search/:word", async(req,res)=> {
   try {
     let result = await Upload.find({compName : word});
     let new_result = result.map((x) => {
-      x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+      x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
       return x;
     });
     res.send(new_result);
@@ -171,7 +171,7 @@ routes.get("/pagination/:a/:b", (req,res)=> {
   }
       Upload.find().skip(skip).limit(total).exec((error,result)=> {
         let new_result = result.map((x) => {
-          x.screen_shot = "http://localhost:3000/screenShots/" + x.screen_shot;
+          x.screen_shot = "https://screenrepo.onrender.com/screenShots/" + x.screen_shot;
           return x;
         });
       res.send(new_result);
