@@ -1,7 +1,22 @@
 <div class="screenshot mt-5 ms-5">
+  <ng-container *ngIf="showSpinner">
+    <div class="spinner-backdrop" *ngIf="showSpinner"></div>
+    <div class="spinner" *ngIf="showSpinner">
+      <div class="spinner-inner"></div>
+    </div>
+  </ng-container>
   <div class="comp mb-4" *ngFor="let image of allImages; let i = index">
     <ng-container *ngIf="i % 8 === 0">
       <h2 class="mb-4">
+        {{
+          searchSuggestionsByBox.length > 0
+            ? image.compName === searchedCompanyName
+              ? image.compName
+              : null
+            : image.compName
+        }}
+      </h2>
+      <!-- <h2 class="mb-4">
         {{
           searchResults.length > 0
             ? image.compName === searchedCompanyName
@@ -9,13 +24,14 @@
               : null
             : image.compName
         }}
-      </h2>
+      </h2> -->
 
       <div class="row mb-5">
         <div
           class="col-md-3 mb-3"
           *ngFor="let img of getImagesByCompany(image.compName)"
         >
+          <!-- *ngFor="let img of getImagesByCompany(image.compName)" -->
           <a (click)="redirect(img._id)" style="cursor: pointer">
             <img src="{{ img.screen_shot }}" class="img-fluid" alt="1" />
           </a>

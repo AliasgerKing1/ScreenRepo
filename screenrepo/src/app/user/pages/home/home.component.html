@@ -13,10 +13,16 @@
           (searchSuggestionsByBox)="onSearchResultsBox($event)"
         ></app-searchbar>
         <hr />
-        <h3 class="mt-5 ms-5">Showing 120 screens from 14 apps</h3>
+        <h3 class="mt-5 ms-5">
+          Showing {{ searchList.length }} screens from {{ appNum }} apps
+        </h3>
         <div class="row me-5">
           <div class="col-md-11 ms-5">
-            <app-screenshot [searchResults]="searchResults2" [searchSuggestionsByBox]="searchResultsBox"></app-screenshot>
+            <app-screenshot
+              [searchResults]="searchResults2"
+              [searchSuggestionsByBox]="searchResultsBox"
+              (searchList)="onSearchList($event)"
+            ></app-screenshot>
           </div>
         </div>
       </div>

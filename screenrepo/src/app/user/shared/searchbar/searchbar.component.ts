@@ -44,7 +44,8 @@ export class SearchbarComponent {
 
   onSuggestionClick(suggestions: any) {
     this._search.searchByWord(suggestions).subscribe((result) => {
-    this.searchSuggestionsByBox.emit(result);
+      // console.log(result);
+      this.searchSuggestionsByBox.emit(result);
     });
   }
 }
