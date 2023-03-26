@@ -154,7 +154,10 @@
                 (change)="onCheckBoxChange($event)"
               />
             </td>
-            <td>{{ n + currentPage + 1 }}</td>
+            <td>
+              {{ n + currentPage + 1 | number : "2.0" }}
+            </td>
+
             <td>
               <img
                 src="{{ i.screen_shot }}"

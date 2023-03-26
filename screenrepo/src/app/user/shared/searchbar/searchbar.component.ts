@@ -27,13 +27,34 @@ export class SearchbarComponent {
       this.searchResults.emit(result);
     });
   }
+  // onInput(event: any) {
+  //   this.searchInput = event.target.value;
+  //   this.inputLength = event.target.value.length;
+  //   this._upload.getImages().subscribe((result) => {
+  //     this.suggestions = result;
+  //   });
+  // }
   onInput(event: any) {
     this.searchInput = event.target.value;
     this.inputLength = event.target.value.length;
-    this._upload.getImages().subscribe((result) => {
-      this.suggestions = result;
-    });
+    if (this.inputLength > 0) {
+      this.showSuggestions = true;
+      this._upload.getImages().subscribe((result) => {
+        this.suggestions = result.filter((suggestion: any) =>
+          suggestion.compName
+            .toLowerCase()
+            .startsWith(this.searchInput.toLowerCase())
+        );
+        // Splice the array based on your requirement
+        for (let i = 1; i < this.suggestions.length; i += 8) {
+          this.suggestions.splice(i, 7);
+        }
+      });
+    } else {
+      this.showSuggestions = false;
+    }
   }
+
   onSearchInput() {
     if (this.inputLength == 0) {
       this.showSuggestions = false;

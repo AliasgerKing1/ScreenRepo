@@ -15,7 +15,6 @@ routes.post("/upload", (req, res) => {
   let extension = array[array.length - 1];
   let new_name = random_string + "." + extension;
   body.screen_shot = new_name;
-  console.log(Backend_url)
   image.mv(path.resolve() + "/assets/screenShots/" + new_name, (error) => {
     let allImages = [];
     allImages.push(new_name);

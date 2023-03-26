@@ -16,9 +16,6 @@
           (keyup)="onSearchInput()"
           (input)="onInput($event)"
         />
-        <!-- <button class="btn btn-secondary" (click)="sendInputWord()">
-          Search
-        </button> -->
         <div class="suggestion-box" *ngIf="showSuggestions">
           <ul>
             <ng-container *ngFor="let suggestion of suggestions">
